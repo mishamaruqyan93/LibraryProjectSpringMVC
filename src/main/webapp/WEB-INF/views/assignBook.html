@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Assignment</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2>Assignment Result</h2>
+
+    <div th:if="${successAssign != null}" style="color: green"
+         th:text="${successAssign}"></div>
+
+    <ul>
+        <li><a href="/admin/dashboard">Go back to Admin dashboard</a></li>
+    </ul>
+</div>
+</body>
+</html>

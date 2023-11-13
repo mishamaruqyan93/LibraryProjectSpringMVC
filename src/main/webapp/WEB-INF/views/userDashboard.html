@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    Welcome dear <h3 th:if="${ user != null}" th:text="${user}"></h3>
+</div>
+<div class="wrapper">
+    <ul>
+        <li><a href="/login">Login Page</a>
+        </li>
+        <li><a href="/users">Show all users</a>
+        </li>
+        <li><a href="/books">Show all books</a>
+        </li>
+        <li><a href="/assign/show-assign-books">Show assigned books</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

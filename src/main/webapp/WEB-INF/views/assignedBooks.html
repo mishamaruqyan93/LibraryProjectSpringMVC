@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assigned Books</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2>Assigned Books</h2>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Book ID</th>
+            <th>Book name</th>
+            <th>Author name</th>
+            <th>User id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${assignBooks}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.bookName}"></td>
+            <td th:text="${book.authorName}"></td>
+            <td th:text="${book.userId}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><a href="/admin/dashboard">Go back to Admin dashboard</a></li>
+    </ul>
+</div>
+</body>
+</html>

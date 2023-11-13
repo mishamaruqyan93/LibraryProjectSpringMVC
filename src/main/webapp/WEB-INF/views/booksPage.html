@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
+
+<title>Books page</title>
+<head>
+    <h3>Welcome to Books page</h3>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>book name</th>
+        <th>author name</th>
+        <th>user id</th>
+        <th>Delete book</th>
+    </tr>
+    <tr th:each="book:${books}">
+        <td th:text="${book.getId()}"></td>
+        <td th:text="${book.getBookName()}"></td>
+        <td th:text="${book.getAuthorName()}"></td>
+        <td th:text="${book.getUserId()}"></td>
+        <td><a th:href="@{/books/delete(id=${book.id})}">Delete</a></td>
+    </tr>
+</table>
+<br>
+<a href="/books/add">Do you want to add another book?  Add book</a><br>
+
+<a href="/admin">Admin page</a>
+
+<h3>Find book by id</h3>
+<form action="/books/bookId" method="get">
+    <input type="text" name="bookId" th:value="${bookId}"
+    />
+    <button type="submit">Find book</button>
+</form>
+
+<p th:if="${book != null}"></p>
+<p th:text="${book.id}"></p>
+<p th:text="${book.bookName}"></p>
+<p th:text="${book.authorName}"></p>
+<p th:text="${book.userId}"></p>
+
+</body>
+</html>

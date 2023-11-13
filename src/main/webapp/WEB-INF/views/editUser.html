@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Edit User </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<p></p>
+<div class="wrapper">
+    <h2>Edit user</h2>
+    <br>
+    <form action="/users/update" method="post" th:object="${userToEdit}">
+        <input type="hidden" name="id" th:value="${userToEdit.id}"/>
+        <div class="input-box">
+            <input name="name" type="text" placeholder="Enter user name" required th:value="${userToEdit.name}"/>
+        </div>
+        <div class="input-box">
+            <input name="lastName" type="text" placeholder="Enter user last name" required
+                   th:value="${userToEdit.lastName}">
+        </div>
+        <div class="input-box">
+            <input name="email" type="text" placeholder="Enter user email" required th:value="${userToEdit.email}"/>
+        </div>
+
+        <div class="input-box button">
+            <input type="Submit" value="Edit user">
+        </div>
+        <div class="text">
+            <h3>Back to login page? <a href="/login">Login now</a></h3>
+        </div>
+    </form>
+</div>
+</body>
+</html>

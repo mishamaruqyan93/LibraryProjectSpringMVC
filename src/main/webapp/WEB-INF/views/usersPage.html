@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
+
+<title>Users page</title>
+<head>
+    <h3>Welcome to Users page</h3>
+
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>last name</th>
+            <th>email</th>
+            <th>user role</th>
+            <th>Options</th>
+        </tr>
+        <tr th:each="user:${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.userRole}"></td>
+            <td><a th:href="@{/users/update(id=${user.id})}">Edit | </a>
+                <a th:href="@{/users/delete(id=${user.id})}">Delete</a></td>
+        </tr>
+    </table>
+
+    <h3>Find user by id</h3>
+    <form action="/users/userId" method="get">
+        <input type="text" name="userId" th:value="${userId}"
+        />
+        <button type="submit">Find</button>
+    </form>
+
+    <p th:if="${user != null}"></p>
+    <p th:text="${user.id}"></p>
+    <p th:text="${user.name}"></p>
+    <p th:text="${user.lastName}"></p>
+    <p th:text="${user.email}"></p>
+    <p th:text="${user.userRole}"></p>
+
+</head>
+<body>
